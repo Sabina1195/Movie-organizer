@@ -1,19 +1,30 @@
-import React, { Component } from 'react';
-import './MovieItem.css';
+import React from "react";
+import { useDispatch } from "react-redux";
+import { addToList } from "../../feauters/FavoritesSlice/FavoritesSlice";
 
-class MovieItem extends Component {
-    render() {
-        const { title, year, poster } = this.props;
-        return (
-            <article className="movie-item">
-                <img className="movie-item__poster" src={poster} alt={title} />
-                <div className="movie-item__info">
-                    <h3 className="movie-item__title">{title}&nbsp;({year})</h3>
-                    <button type="button" className="movie-item__add-button">Добавить в список</button>
-                </div>
-            </article>
-        );
-    }
+import "./MovieItem.css";
+export default function MovieItem(state) {
+  const dispatch = useDispatch();
+  //
+  return (
+    <article className="movie-item">
+      <img
+        className="movie-item__poster"
+        src={state.Poster}
+        alt={state.Title}
+      />
+      <div className="movie-item__info">
+        <h3 className="movie-item__title">
+          {state.Title}&nbsp;({state.Year})
+        </h3>
+        <button
+          type="button"
+          className="movie-item__add-button"
+          onClick={() => dispatch(addToList(state))}
+        >
+          Add to list
+        </button>
+      </div>
+    </article>
+  );
 }
- 
-export default MovieItem;

@@ -1,43 +1,50 @@
-import React, { Component } from 'react';
-import './SearchBox.css';
+import React from "react";
+import "./SearchBox.css";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { search } from "../../feauters/SearchSlice/SearchSlice";
+export default function SearchBox() {
+  const dispatch = useDispatch();
+  const [value, setValue] = useState("");
+  const handleDisableAndValue = (e) => {
+    setValue(e.target.value);
+  };
 
-class SearchBox extends Component {
-    state = {
-        searchLine: ''
-    }
-    searchLineChangeHandler = (e) => {
-        this.setState({ searchLine: e.target.value });
-    }
-    searchBoxSubmitHandler = (e) => {
-        e.preventDefault();
-    }
-    render() {
-        const { searchLine } = this.state;
+  const searchMovies = (e) => {
+    e.preventDefault();
+    fetch(`https://omdbapi.com/?s=${value}&apikey=7249d26b`)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(search(data.Search));
+      });
+  };
 
-        return (
-            <div className="search-box">
-                <form className="search-box__form" onSubmit={this.searchBoxSubmitHandler}>
-                    <label className="search-box__form-label">
-                        Искать фильм по названию:
-                        <input
-                            value={searchLine}
-                            type="text"
-                            className="search-box__form-input"
-                            placeholder="Например, Shawshank Redemption"
-                            onChange={this.searchLineChangeHandler}
-                        />
-                    </label>
-                    <button
-                        type="submit"
-                        className="search-box__form-submit"
-                        disabled={!searchLine}
-                    >
-                        Искать
-                    </button>
-                </form>
-            </div>
-        );
-    }
+  return (
+    <div className="search-box">
+      <form
+        action="submit"
+        className="search-box__form"
+        onSubmit={searchMovies}
+      >
+        <label htmlFor="search-input" className="search-box__form-label">
+          Search movie by title:{" "}
+          <input
+            value={value}
+            onChange={handleDisableAndValue}
+            type="text"
+            className="search-box__form-input"
+            placeholder="E.g. Shawshank Redemption"
+            id="search-input"
+          />
+        </label>
+        <button
+          type="submit"
+          disabled={value.length === 0}
+          className="search-box__form-submit"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+  );
 }
- 
-export default SearchBox;

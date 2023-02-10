@@ -1,7 +1,7 @@
 import React from 'react';
-import MaingPage  from './pages/MainPage/MainPage';
-import ListPage from './pages/ListPage/ListPage';
-import { BrowserRouter, Route } from 'react-router-dom';
+import MainPage from './pages/MainPage/MainPage';
+import ListPage from './pages/ListPage/ListPage'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './reset.css';
 import './common.css';
 
@@ -10,8 +10,10 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-          <Route path="*" element={<MaingPage />} />
+        <Routes>
+          <Route path="*" element={<MainPage />} />
           <Route path="/list/:id" element={<ListPage />} />
+        </Routes>
       </div>
     </BrowserRouter>
   );

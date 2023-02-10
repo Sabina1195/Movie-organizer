@@ -4,7 +4,7 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 import Favorites from "../../components/Favorites/Favorites";
 import "./MainPage.css";
 import Movies from "../../components/Movies/Movies";
-export default function MaingPage() {
+export default function MainPage() {
   return (
     <div className="main-page">
       <Header />

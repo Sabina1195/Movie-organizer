@@ -15,23 +15,25 @@
     width: 300px;
     font-size: 14px;
     padding: 5px 10px;
-    border: 1px solid rgba(0, 8, 7, .5);
+    border: 1px solid rgb(11, 78, 117);
+    border-radius:5px;
 }
 
 .search-box__form-submit {
+    border: none;
     margin-top: 17px;
     padding: 5px 10px;
-    border: none;
     transition: all 0.2s linear;
-    color: #FFEEDB;
-    background-color: rgba(0, 8, 7);
+    color: #ffffff;
+    background-color: rgb(15, 115, 173);
+    border-radius:5px;
 }
 
 .search-box__form-submit:hover:not(:disabled) {
     opacity: 0.8;
     cursor: pointer;
     transition: all 0.2s linear;
-    background-color: #FFEEDB;
+    background-color: #0ec6d3;
     color: rgba(0, 8, 7);
 }
 

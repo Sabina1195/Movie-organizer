@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./Favorites.css";
-import { removeFromList } from "../../feauters/FavoritesSlice/FavoritesSlice";
+import { remove } from "../../feauters/FavoritesSlice/FavoritesSlice";
 
 import { Link } from "react-router-dom";
 export default function Favorites() {
@@ -49,9 +49,10 @@ export default function Favorites() {
         {favoritesList.map((item) => (
           <li key={item.imdbID} className="favorites__list-item">
             {item.Title}({item.Year})
-            <button
+            <button 
+              className="delete"
               disabled={disabled}
-              onClick={() => dispatch(removeFromList(item))}
+              onClick={() => dispatch(remove(item))}
             >
               X
             </button>
@@ -65,7 +66,7 @@ export default function Favorites() {
           disabled={favoritesList.length === 0 || value === ""}
           onClick={handleClick}
         >
-          Save List
+          Save
         </button>
       ) : (
         <Link to={"/list/" + id}>Go to the list</Link>

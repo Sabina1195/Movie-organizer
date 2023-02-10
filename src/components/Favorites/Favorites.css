@@ -1,7 +1,8 @@
 .favorites {
     box-sizing: border-box;
-    border: 1px solid rgba(0, 8, 7);
     padding: 30px 20px;
+    background-image: linear-gradient(to right, #00c3ff, #1f569e, #272453);
+    border-radius: 5px;
 }
 
 .favorites__name {
@@ -9,23 +10,31 @@
     width: 100%;
     font-size: 16px;
     padding: 5px 10px;
-    border: 1px solid rgba(0, 8, 7, .5);
     margin-bottom: 24px;
+    border-radius: 5px;
+    border: none;
 }
 
 .favorites__list {
     margin-bottom: 24px;
+    color: white;
 }
 
 .favorites__save {
     border: none;
-    background-color: #496DDB;
-    padding: 10px 15px;
-    color: #FFEEDB;
+    background-color: #fafbfd;
+    padding: 7px 25px;
+    color: #2086c2;
     font-size: 14px;
     transition: all 0.2s linear;
+    border-radius: 5px;
+    
 }
-
+.delete{
+    background: none;
+    border: none;
+    color: rgb(242, 244, 245);
+}
 .favorites__save:hover {
     cursor: pointer;
     opacity: 0.9;

@@ -1,7 +1,8 @@
 .movie-item {
     padding: 20px;
-    background-color: #FFEEDB;
+    background-image: linear-gradient(to right, #fdfdfd, #75d7fd, #09a9f3);
     display: flex;
+    border-radius: 5px;
 }
 
 .movie-item__poster {
@@ -19,9 +20,10 @@
     border: none;
     background-color: #496DDB;
     padding: 10px 15px;
-    color: #FFEEDB;
+    color: #ffffff;
     font-size: 14px;
     transition: all 0.2s linear;
+    border-radius: 5px;
 }
 
 .movie-item__add-button:hover {

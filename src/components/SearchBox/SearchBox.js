@@ -12,7 +12,7 @@ export default function SearchBox() {
 
   const searchMovies = (e) => {
     e.preventDefault();
-    fetch(`https://omdbapi.com/?s=${value}&apikey=7249d26b`)
+    fetch(`https://omdbapi.com/?s=${value}&apikey=dde8cf3f`)
       .then((res) => res.json())
       .then((data) => {
         dispatch(search(data.Search));

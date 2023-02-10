@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addToList } from "../../feauters/FavoritesSlice/FavoritesSlice";
+import { add } from "../../feauters/FavoritesSlice/FavoritesSlice";
 
 import "./MovieItem.css";
 export default function MovieItem(state) {
@@ -20,7 +20,7 @@ export default function MovieItem(state) {
         <button
           type="button"
           className="movie-item__add-button"
-          onClick={() => dispatch(addToList(state))}
+          onClick={() => dispatch(add(state))}
         >
           Add to list
         </button>

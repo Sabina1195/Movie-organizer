@@ -5,14 +5,14 @@ export const favoritesSlice = createSlice({
         favoriteList: [],
     },
     reducers: {
-        addToList: (state, action) => {
+        add: (state, action) => {
             const foundMovie = state.favoriteList.find(movie => movie.imdbID === action.payload.imdbID);
             if (!state.favoriteList.includes(foundMovie)) {
                 state.favoriteList = [...state.favoriteList, action.payload]
             }
 
         },
-        removeFromList: (state, action) => {
+        remove: (state, action) => {
             const filteredList = state.favoriteList.filter(movie => movie.imdbID !== action.payload.imdbID);
             state.favoriteList = filteredList
         },
@@ -21,5 +21,5 @@ export const favoritesSlice = createSlice({
         }
     }
 })
-export const { addToList, removeFromList } = favoritesSlice.actions
+export const { add, remove } = favoritesSlice.actions
 export default favoritesSlice.reducer
